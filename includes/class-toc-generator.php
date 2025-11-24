@@ -25,9 +25,7 @@ class TOC_Master_Generator {
 
 		// Check if enabled globally
 		if ( ! isset( $this->options['enable_toc'] ) || $this->options['enable_toc'] !== '1' ) {
-			// Even if disabled globally, shortcode should work? 
-			// For now, let's assume shortcode works regardless, but auto-insert checks this.
-			// However, we need to parse headings anyway if shortcode is present.
+
 		}
 
 		// Parse Headings
@@ -67,11 +65,7 @@ class TOC_Master_Generator {
 	}
 
 	public function shortcode_toc( $atts ) {
-		// Shortcode logic is handled in process_content because we need to modify the content to add IDs.
-		// But standard WP shortcode execution happens before the_content filter sometimes or inside it.
-		// Actually, since we are filtering the_content, we can just return an empty string here 
-		// and let process_content replace the placeholder if we want to be efficient, 
-		// OR we can return a placeholder that process_content looks for.
+
 		return '[toc]'; 
 	}
 
@@ -83,7 +77,7 @@ class TOC_Master_Generator {
 
 		$pattern = '/<h([' . implode( '', str_replace( 'h', '', $allowed_levels ) ) . '])(.*?)>(.*?)<\/h\1>/i';
 		
-		// Use PREG_OFFSET_CAPTURE to handle replacements correctly without affecting other parts
+
 		if ( preg_match_all( $pattern, $content, $matches, PREG_SET_ORDER | PREG_OFFSET_CAPTURE ) ) {
 			$headings = array();
 			$offset_correction = 0;
@@ -110,12 +104,10 @@ class TOC_Master_Generator {
 					if ( ! empty( $id_match[1] ) ) {
 						$id = $id_match[1];
 					}
-					// No need to replace content if ID exists, but we add to TOC
+
 					$final_heading = $full_match_str;
 				} else {
-					// Inject ID
-					// Reconstruct the tag: <h$level $attrs id="$id">$title</h$level>
-					// Be careful with spaces in attrs
+
 					$new_attrs = $attrs . ' id="' . $id . '"';
 					$new_heading = "<h{$level}{$new_attrs}>{$match[3][0]}</h{$level}>";
 					
