@@ -41,29 +41,6 @@ class TBRV_Block {
 	}
 
 	public function render_block( $attributes, $content ) {
-
-
-        
-        global $post;
-        if ( ! $post ) {
-            return '';
-        }
-        
-
-        
-        $generator = new TBRV_Generator();
-
-        
-        $content_to_parse = $post->post_content;
-        
-
-        
-
-        
-        $instance = TBRV_Plugin::get_instance();
-
-        
-
-        return '[toc]';
+		return '[tbrv]';
 	}
 }

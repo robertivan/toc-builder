@@ -55,7 +55,7 @@ Once activated, you can configure the plugin via the **TOC Builder** menu in you
 
 **Manual Insertion:**
 You can also manually place the TOC using:
-*   The `[toc]` shortcode anywhere in your content.
+*   The `[tbrv]` shortcode anywhere in your content.
 *   The **TOC Builder** block in the Gutenberg editor.
 
 ## ❓ FAQ
@@ -81,6 +81,11 @@ No. The plugin is optimized for performance with minimal CSS and JavaScript that
 </details>
 
 ## 📋 Changelog
+
+### 1.3.0
+*   **Improved**: Codebase refactoring for better compatibility.
+*   **Fixed**: Minor bugs and stability improvements.
+*   **Improved**: CSS loading optimization.
 
 ### 1.2.1
 *   **Changed**: All functions, classes, and hooks prefixed with `tbrv_` to prevent conflicts.

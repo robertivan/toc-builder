@@ -15,7 +15,7 @@ class TBRV_Generator {
 		add_filter( 'the_content', array( $this, 'process_content' ), 20 );
 		
 		// Shortcode
-		add_shortcode( 'toc', array( $this, 'shortcode_toc' ) );
+		add_shortcode( 'tbrv', array( $this, 'shortcode_tbrv' ) );
 	}
 
 	public function process_content( $content ) {
@@ -24,8 +24,8 @@ class TBRV_Generator {
 		}
 
 		// Check if enabled globally
-		if ( ! isset( $this->options['enable_toc'] ) || $this->options['enable_toc'] !== '1' ) {
-
+		if ( ( ! isset( $this->options['enable_tbrv'] ) || $this->options['enable_tbrv'] !== '1' ) && ! has_shortcode( $content, 'tbrv' ) ) {
+			return $content;
 		}
 
 		// Parse Headings
@@ -39,7 +39,7 @@ class TBRV_Generator {
 		$toc_html = $this->generate_toc_html( $headings );
 
 		// Auto Insert
-		if ( isset( $this->options['enable_toc'] ) && $this->options['enable_toc'] === '1' ) {
+		if ( isset( $this->options['enable_tbrv'] ) && $this->options['enable_tbrv'] === '1' ) {
 			// Check position
 			$position = isset( $this->options['position'] ) ? $this->options['position'] : 'before';
 			
@@ -57,8 +57,8 @@ class TBRV_Generator {
 		}
 
 		// Replace Shortcode if exists
-		if ( has_shortcode( $content, 'toc' ) ) {
-			$content = str_replace( '[toc]', $toc_html, $content );
+		if ( has_shortcode( $content, 'tbrv' ) ) {
+			$content = str_replace( '[tbrv]', $toc_html, $content );
 		}
 
 		return $content;
@@ -66,7 +66,7 @@ class TBRV_Generator {
 
 	public function shortcode_toc( $atts ) {
 
-		return '[toc]'; 
+		return '[tbrv]'; 
 	}
 
 	private function extract_headings( &$content ) {
@@ -151,9 +151,9 @@ class TBRV_Generator {
 		// Header with toggle
 		$collapsible = isset( $this->options['collapsible'] ) && $this->options['collapsible'] === '1';
 		$html .= '<div class="tbrv-header">';
-		$html .= '<span class="tbrv-title">' . esc_html__( 'Table of Contents', 'toc-builder' ) . '</span>';
+		$html .= '<span class="tbrv-title">' . esc_html__( 'Table of Contents', 'toc-builder-by-robertivan' ) . '</span>';
 		if ( $collapsible ) {
-			$html .= '<span class="tbrv-toggle">[<a href="#" class="tbrv-toggle-link">' . esc_html__( 'hide', 'toc-builder' ) . '</a>]</span>';
+			$html .= '<span class="tbrv-toggle">[<a href="#" class="tbrv-toggle-link">' . esc_html__( 'hide', 'toc-builder-by-robertivan' ) . '</a>]</span>';
 		}
 		$html .= '</div>';
 

@@ -3,11 +3,11 @@
  * Plugin Name: TOC Builder by RobertIvan
  * Plugin URI:  
  * Description: An ultra-advanced Table of Contents generator with smooth scroll, Gutenberg support, and high configurability.
- * Version:     1.2.1
+ * Version:     1.3.0
  * Author:      Robert Ivan
  * Author URI:  https://github.com/robertivan/
  * License:     GPLv2 or later
- * Text Domain: toc-builder
+ * Text Domain: toc-builder-by-robertivan
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define Constants
-define( 'TBRV_VERSION', '1.2.1' );
+define( 'TBRV_VERSION', '1.3.0' );
 define( 'TBRV_PATH', plugin_dir_path( __FILE__ ) );
 define( 'TBRV_URL', plugin_dir_url( __FILE__ ) );
 

@@ -70,7 +70,6 @@ class TBRV_Settings {
 
     public function enqueue_admin_scripts( $hook ) {
         // Check if we're on any of our admin pages
-        // Check if we're on any of our admin pages (using strpos is safer than strict array check)
         if ( strpos( $hook, 'tbrv' ) === false ) {
             return;
         }
@@ -95,12 +94,12 @@ class TBRV_Settings {
 		);
 
 		add_settings_field(
-			'enable_toc',
+			'enable_tbrv',
 			'Enable TOC',
 			array( $this, 'render_checkbox_field' ),
 			'tbrv-settings',
 			'tbrv_general_section',
-			array( 'id' => 'enable_toc', 'label' => 'Enable Table of Contents automatically' )
+			array( 'id' => 'enable_tbrv', 'label' => 'Enable Table of Contents automatically' )
 		);
 
 		add_settings_field(
@@ -112,7 +111,7 @@ class TBRV_Settings {
 			array( 'id' => 'headings' )
 		);
 
-			add_settings_field(
+		add_settings_field(
 			'position',
 			'Position',
 			array( $this, 'render_select_field' ),
@@ -149,7 +148,7 @@ class TBRV_Settings {
 
 	public function sanitize_settings( $input ) {
 		$new_input = array();
-		$new_input['enable_toc'] = isset( $input['enable_toc'] ) ? '1' : '0';
+		$new_input['enable_tbrv'] = isset( $input['enable_tbrv'] ) ? '1' : '0';
 		$new_input['smooth_scroll'] = isset( $input['smooth_scroll'] ) ? '1' : '0';
         $new_input['collapsible'] = isset( $input['collapsible'] ) ? '1' : '0';
 		$new_input['position'] = sanitize_text_field( $input['position'] );
@@ -196,7 +195,7 @@ class TBRV_Settings {
 
 								<?php
 								$options = get_option( $this->option_name );
-								$enable_toc = isset( $options['enable_toc'] ) && $options['enable_toc'] === '1' ? 'checked' : '';
+								$enable_tbrv = isset( $options['enable_tbrv'] ) && $options['enable_tbrv'] === '1' ? 'checked' : '';
 								$smooth_scroll = isset( $options['smooth_scroll'] ) && $options['smooth_scroll'] === '1' ? 'checked' : '';
 								$collapsible = isset( $options['collapsible'] ) && $options['collapsible'] === '1' ? 'checked' : '';
 								$position = isset( $options['position'] ) ? $options['position'] : 'before';
@@ -207,8 +206,8 @@ class TBRV_Settings {
 									<div class="toc-settings-label">Enable TOC</div>
 									<div class="toc-settings-control">
 										<div class="toc-checkbox-wrapper">
-											<input type="checkbox" id="enable_toc" name="<?php echo esc_attr( $this->option_name ); ?>[enable_toc]" value="1" <?php checked( $enable_toc, 'checked' ); ?>>
-											<label for="enable_toc">Enable Table of Contents automatically</label>
+											<input type="checkbox" id="enable_tbrv" name="<?php echo esc_attr( $this->option_name ); ?>[enable_tbrv]" value="1" <?php checked( $enable_tbrv, 'checked' ); ?>>
+											<label for="enable_tbrv">Enable Table of Contents automatically</label>
 										</div>
 										<p class="toc-helper-text">When enabled, TOC will be automatically generated on all posts and pages.</p>
 									</div>

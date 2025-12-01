@@ -4,7 +4,7 @@ Tags: table of contents, toc, navigation, headings, gutenberg
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,7 +99,7 @@ The admin interface is designed to accommodate upcoming features:
 5. Configure additional options like smooth scroll and collapsible TOC
 6. Save your settings
 
-The TOC will appear automatically on posts and pages (if enabled) or you can use the `[toc]` shortcode to place it manually.
+The TOC will appear automatically on posts and pages (if enabled) or you can use the `[tbrv]` shortcode to place it manually.
 
 == Frequently Asked Questions ==
 
@@ -119,7 +119,7 @@ Yes. It works with any content that uses standard HTML heading tags (`<h1>` to `
 
 You have three options:
 1. Enable automatic insertion in TOC Builder settings
-2. Use the `[toc]` shortcode anywhere in your content
+2. Use the `[tbrv]` shortcode anywhere in your content
 3. Use the "TOC Builder" block in the Gutenberg editor
 
 = Can I customize the appearance? =
@@ -148,6 +148,11 @@ Yes. This plugin is licensed under GPLv2, which allows you to use it on as many 
 6. WordPress sidebar menu with TOC Builder icon
 
 == Changelog ==
+
+= 1.3.0 =
+* Improved: Codebase refactoring for better compatibility
+* Fixed: Minor bugs and stability improvements
+* Improved: CSS loading optimization
 
 = 1.2.1 =
 * Changed: All functions, classes, and hooks prefixed with tbrv_ to prevent conflicts
