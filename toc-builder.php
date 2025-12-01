@@ -7,7 +7,7 @@
  * Author:      Robert Ivan
  * Author URI:  https://github.com/robertivan/
  * License:     GPLv2 or later
- * Text Domain: tbrv
+ * Text Domain: toc-builder
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

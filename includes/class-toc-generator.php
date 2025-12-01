@@ -151,9 +151,9 @@ class TBRV_Generator {
 		// Header with toggle
 		$collapsible = isset( $this->options['collapsible'] ) && $this->options['collapsible'] === '1';
 		$html .= '<div class="tbrv-header">';
-		$html .= '<span class="tbrv-title">' . esc_html__( 'Table of Contents', 'tbrv' ) . '</span>';
+		$html .= '<span class="tbrv-title">' . esc_html__( 'Table of Contents', 'toc-builder' ) . '</span>';
 		if ( $collapsible ) {
-			$html .= '<span class="tbrv-toggle">[<a href="#" class="tbrv-toggle-link">' . esc_html__( 'hide', 'tbrv' ) . '</a>]</span>';
+			$html .= '<span class="tbrv-toggle">[<a href="#" class="tbrv-toggle-link">' . esc_html__( 'hide', 'toc-builder' ) . '</a>]</span>';
 		}
 		$html .= '</div>';
 

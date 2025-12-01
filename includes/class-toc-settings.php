@@ -70,14 +70,8 @@ class TBRV_Settings {
 
     public function enqueue_admin_scripts( $hook ) {
         // Check if we're on any of our admin pages
-        $our_pages = array(
-            'toplevel_page_tbrv',
-            'tbrv_page_tbrv-appearance',
-            'tbrv_page_tbrv-advanced',
-            'tbrv_page_tbrv-premium'
-        );
-        
-        if ( ! in_array( $hook, $our_pages ) ) {
+        // Check if we're on any of our admin pages (using strpos is safer than strict array check)
+        if ( strpos( $hook, 'tbrv' ) === false ) {
             return;
         }
         
